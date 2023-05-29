@@ -78,6 +78,7 @@ def image(season):
     else:
         plt.imshow(spring)
         plt.title(season.upper())
+    plt.show()
     
 
 
