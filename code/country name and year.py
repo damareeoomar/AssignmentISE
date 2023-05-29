@@ -82,25 +82,54 @@ def season1(country,month):
     return season 
 
 def image(season):
+    
+
     if season == "Winter":
         plt.imshow(winter)
-        plt.title(season.upper(),  fontsize = "18")
+        plt.title(season.upper(), fontsize = "17")
     elif season == "Summer":
         plt.imshow(summer)
-        plt.title(season.upper(),  fontsize = "18")
+        plt.title(season.upper(), fontsize = "17")
     elif season == "Autumn":
         plt.imshow(autumn)
-        plt.title(season.upper(),  fontsize = "18")
-    else:
+        plt.title(season.upper(), fontsize = "17")
+    elif season == "Spring":
         plt.imshow(spring)
-        plt.title(season.upper(),  fontsize = "18")
+        plt.title(season.upper(), fontsize = "17")
+    elif season == "Northeast Monsoon" or season == "Southeast Monsoon":
+        plt.imshow(monsoon)
+        plt.title(season.upper(), fontsize = "17")
+    elif season == "Inter-monsoon":
+        plt.imshow(inter_monsoon)
+        plt.title(season.upper(), fontsize = "17")
+    elif season == "Birak":
+        plt.imshow(birak)
+        plt.title(season.upper(), fontsize = "17")
+    elif season == "Bunuru":
+        plt.imshow(bunuru)
+        plt.title(season.upper(), fontsize = "17")
+    elif season == "Djeran":
+        plt.imshow(djeran)
+        plt.title(season.upper(), fontsize = "17")
+    elif season == "Makuru":
+        plt.imshow(makuru)
+        plt.title(season.upper(), fontsize = "17")
+    elif season == "Kambarang":
+        plt.imshow(kambarang)
+        plt.title(season.upper(), fontsize = "17")
+    else:
+        plt.imshow(djilba)
+        plt.title(season.upper(), fontsize = "17")
     plt.show()
+    
 
 
 
 
 
 if __name__ == "__main__":
+
+    
     Name_Month()
     """
     a = input("Enter the country name: ")        #a = input("Enter the country name: ").upper()
