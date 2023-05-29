@@ -1,6 +1,22 @@
 #
 # 
 #
+import matplotlib.pyplot as plt
+import matplotlib.image as im 
+summer = im.imread("summer.png")
+winter = im.imread("winter.png")
+spring = im.imread("spring.png")
+autumn = im.imread("autumn.png")
+inter_monsoon = im.imread("inter-monsoon.png")
+monsoon = im.imread("monsoon.png")
+birak = im.imread("birak.png")
+bunuru = im.imread("bunuru.png")
+djeran = im.imread("djeran.png")
+djilba = im.imread("djilba.png")
+kambarang = im.imread("kambarang.png")
+makuru = im.imread("makuru.png")
+
+
 
 def Name_Month():
     global country, month, season
@@ -48,7 +64,21 @@ def season1(country,month):
         else:
             season = "Inter-monsoon"
     return season 
-        
+
+def image(season):
+    if season == "Winter":
+        plt.imshow(winter)
+        plt.title(season.upper())
+    elif season == "Summer":
+        plt.imshow(summer)
+        plt.title(season.upper())
+    elif season == "Autumn":
+        plt.imshow(autumn)
+        plt.title(season.upper())
+    else:
+        plt.imshow(spring)
+        plt.title(season.upper())
+    
 
 
 
@@ -59,4 +89,5 @@ if __name__ == "__main__":
     
 
     season2 = season1(country,month)
+    image(season2)
     print(season2)
