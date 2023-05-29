@@ -4,31 +4,24 @@
 import matplotlib.pyplot as plt
 import matplotlib.image as im 
 
-summer = im.imread("summer.png")
-winter = im.imread("winter.png")
-spring = im.imread("spring.png")
-autumn = im.imread("autumn.png")
-inter_monsoon = im.imread("inter-monsoon.png")
-monsoon = im.imread("monsoon.png")
-birak = im.imread("birak.png")
-bunuru = im.imread("bunuru.png")
-djeran = im.imread("djeran.png")
-djilba = im.imread("djilba.png")
-kambarang = im.imread("kambarang.png")
-makuru = im.imread("makuru.png")
+
 
 
 
 def Name_Month():
-    global country, month, season
+    global country, month
     a = input("Enter the country name: ")        #a = input("Enter the country name: ").upper()
     country = a.upper()
     
     b = input("Enter the number of the month of the year:(1-12) ")   
     month = int(b)
+    while month not in range(1,13):
+        b = input("Wrong input of month number. Try again (1 -12) ")
+        month = int(b)
     print(country, " ", month)
- 
- 
+
+
+"""
 def season1(country,month):
     if country == "AUSTRALIA":
         choice = int(input("Do you want The traditional seasons(1) or the Noongar Seasons(2):  "))
@@ -80,49 +73,142 @@ def season1(country,month):
         else:
             season = "Inter-monsoon"
     return season 
+"""
+def mauritus(month):
+    if 10 < month < 13   or 0 < month < 5:
+        season = "Summer"
+    elif month == 5 :
+        season = "Autumn"
+    elif 5 < month < 10:
+        season = "Spring"
+    else:
+        season = "Winter"
+        
+    return season
 
+
+def spain_japan(month):
+    if month == 12 or 0 <month<3 :
+        season = "Winter"
+    elif 2 < month < 6 :
+        season = "Spring"
+    elif 5 < month < 9:
+        season = "Summer"
+    else:
+        season = "Autumn"
+        
+    return season
+
+
+def australia_1(month):
+     if month == 12 or month ==1 :
+         season = "Birak"
+     elif month == 2 or month ==3 :
+         season = "Bunuru"
+     elif month == 4 or month == 5 :
+         season = "Djeran"
+     elif month == 6 or month == 7 :
+         season = "Makuru"
+     elif month == 8 or month == 9 :
+         season = "Dijilba"
+     else:
+         season = "Kambarang"
+    
+     return season
+ 
+         
+def australia_2(month):
+    if month == 12 or 0<month<3 :
+        season = "Summer"
+    elif 2 < month < 6 :
+        season = "Autumn"
+    elif 5 < month < 9:
+        season = "Winter"
+    else:
+        season = "Spring"
+        
+    return season
+
+
+def malaysia_sri_lanka(month):
+        if 11 < month < 3:
+            season = "Northeast Monsoon"
+        elif 4 < month < 10:
+            season = "Southeast Monsoon"
+        else:
+            season = "Inter-monsoon"
+            
+        return season
+    
+    
+def location(country,month):
+    if country == "AUSTRALIA":
+        choice = int(input("Do you want The traditional seasons(1) or the Noongar Seasons(2):  "))
+        if choice == 1 :
+            season = australia_1(month)
+        else:
+            season = australia_2(month)
+    elif country == 'MAURITUS':
+        season = mauritus(month)
+        
+    elif country =="SPAIN" or  country =="JAPAN":
+        season = spain_japan(month)
+    elif country == "SRI LANKA" or country == "MALAYSIA":
+        season = malaysia_sri_lanka(month)
+    else:
+        season = "Wrong"
+ 
+    return season 
+    
+    
 def image(season):
     
-
-    if season == "Winter":
-        plt.imshow(winter)
-        plt.title(season.upper(), fontsize = "17")
-    elif season == "Summer":
-        plt.imshow(summer)
-        plt.title(season.upper(), fontsize = "17")
-    elif season == "Autumn":
-        plt.imshow(autumn)
-        plt.title(season.upper(), fontsize = "17")
-    elif season == "Spring":
-        plt.imshow(spring)
-        plt.title(season.upper(), fontsize = "17")
-    elif season == "Northeast Monsoon" or season == "Southeast Monsoon":
-        plt.imshow(monsoon)
-        plt.title(season.upper(), fontsize = "17")
-    elif season == "Inter-monsoon":
-        plt.imshow(inter_monsoon)
-        plt.title(season.upper(), fontsize = "17")
-    elif season == "Birak":
-        plt.imshow(birak)
-        plt.title(season.upper(), fontsize = "17")
-    elif season == "Bunuru":
-        plt.imshow(bunuru)
-        plt.title(season.upper(), fontsize = "17")
-    elif season == "Djeran":
-        plt.imshow(djeran)
-        plt.title(season.upper(), fontsize = "17")
-    elif season == "Makuru":
-        plt.imshow(makuru)
-        plt.title(season.upper(), fontsize = "17")
-    elif season == "Kambarang":
-        plt.imshow(kambarang)
-        plt.title(season.upper(), fontsize = "17")
-    else:
-        plt.imshow(djilba)
-        plt.title(season.upper(), fontsize = "17")
-    plt.show()
+    plt.imshow(im.imread(season.lower()+".png"))
+    plt.title(country +" & "+ season.upper(), fontsize = "17")
     
 
+    """
+    if season == "Winter":
+        plt.imshow(im.imread("winter.png"))
+       
+    elif season == "Summer":
+        plt.imshow(im.imread("summer.png"))
+       
+    elif season == "Autumn":
+        plt.imshow(im.imread("autumn.png"))
+        
+    elif season == "Spring":
+        plt.imshow(im.imread("spring.png"))
+        
+    elif season == "Northeast Monsoon" or season == "Southeast Monsoon":
+        plt.imshow(im.imread("monsoon.png"))
+        
+    elif season == "Inter-monsoon":
+        plt.imshow(im.imread("inter-monsoon.png"))
+       
+    elif season == "Birak":
+        plt.imshow(im.imread("birak.png"))
+        
+    elif season == "Bunuru":
+        plt.imshow(im.imread("bunuru.png"))
+        
+    elif season == "Djeran":
+        plt.imshow(im.imread("djeran.png"))
+        
+    elif season == "Makuru":
+        plt.imshow(im.imread("makuru.png"))
+        
+    elif season == "Kambarang":
+        plt.imshow(im.imread("kambarang.png"))
+        
+    else:
+        plt.imshow(im.imread("djilba.png"))
+        
+    plt.title(season.upper(), fontsize = "17")
+    plt.show()
+    """
+
+    
 
 
 
@@ -139,6 +225,6 @@ if __name__ == "__main__":
     month = int(b)
     """
 
-    season2 = season1(country,month)
-    image(season2)
-    print(season2)
+    season = location(country,month)
+    image(season)
+    print(season)
