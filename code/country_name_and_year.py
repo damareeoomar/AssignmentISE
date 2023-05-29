@@ -18,7 +18,7 @@ def Name_Month():
     while month not in range(1,13):
         b = input("Wrong input of month number. Try again (1 -12) ")
         month = int(b)
-    print(country, " ", month)
+    print(country," ",month)
 
 
 """
@@ -74,15 +74,15 @@ def season1(country,month):
             season = "Inter-monsoon"
     return season 
 """
-def mauritus(month):
+def mauritius(month):
     if 10 < month < 13   or 0 < month < 5:
         season = "Summer"
     elif month == 5 :
         season = "Autumn"
     elif 5 < month < 10:
-        season = "Spring"
-    else:
         season = "Winter"
+    else:
+        season = "Spring"
         
     return season
 
@@ -100,7 +100,7 @@ def spain_japan(month):
     return season
 
 
-def australia_1(month):
+def australia_2(month):
      if month == 12 or month ==1 :
          season = "Birak"
      elif month == 2 or month ==3 :
@@ -110,14 +110,14 @@ def australia_1(month):
      elif month == 6 or month == 7 :
          season = "Makuru"
      elif month == 8 or month == 9 :
-         season = "Dijilba"
+         season = "Djilba"
      else:
          season = "Kambarang"
     
      return season
  
          
-def australia_2(month):
+def australia_1(month):
     if month == 12 or 0<month<3 :
         season = "Summer"
     elif 2 < month < 6 :
@@ -131,7 +131,7 @@ def australia_2(month):
 
 
 def malaysia_sri_lanka(month):
-        if 11 < month < 3:
+        if month == 12 or month < 3:
             season = "Northeast Monsoon"
         elif 4 < month < 10:
             season = "Southeast Monsoon"
@@ -148,8 +148,8 @@ def location(country,month):
             season = australia_1(month)
         else:
             season = australia_2(month)
-    elif country == 'MAURITUS':
-        season = mauritus(month)
+    elif country == 'MAURITIUS':
+        season = mauritius(month)
         
     elif country =="SPAIN" or  country =="JAPAN":
         season = spain_japan(month)
